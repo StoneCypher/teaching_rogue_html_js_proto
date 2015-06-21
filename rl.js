@@ -3,9 +3,43 @@ var rl = (function(document) {
 
 
 
+    function needsRender() {
+      renderString(thisMap, 40);
+    }
+
+
+
     var player = {
 
-        loc: {x: 20, y: 4}
+        loc        : {x: 20, y: 4},
+        doNothing  : function() {},  // whargarbl todo
+        locIsValid : function(X, Y) { return true; }, // whargarbl todo
+        tryMoveBy  : function(dX, dY) {
+          var newX = player.loc.x + dX,
+              newY = player.loc.y + dY;
+          if (player.locIsValid(newX, newY)) {
+            player.loc.x = newX;
+            player.loc.y = newY;
+            needsRender();
+          }
+        },
+        move      : function(npad) {
+          switch (npad) {
+
+            case 97  : /* 1 */ player.tryMoveBy(-1,  1); break;
+            case 98  : /* 2 */ player.tryMoveBy( 0,  1); break;
+            case 99  : /* 3 */ player.tryMoveBy( 1,  1); break;
+
+            case 100 : /* 4 */ player.tryMoveBy(-1,  0); break;
+            case 102 : /* 6 */ player.tryMoveBy( 1,  0); break;
+
+            case 103 : /* 7 */ player.tryMoveBy(-1, -1); break;
+            case 104 : /* 8 */ player.tryMoveBy( 0, -1); break;
+            case 105 : /* 9 */ player.tryMoveBy( 1, -1); break;
+
+            default  : throw 'nonsense keypress to player.move';
+          }
+        }
 
     };
 
@@ -84,7 +118,33 @@ var rl = (function(document) {
 
 
 
-    function keyHandler(keyPressed) {
+    function keyHandler(keyEvent) {
+
+      console.log('handler');
+
+      var keycode = (keyEvent || window.event).keyCode;
+
+      switch (keycode) {
+
+        /* 1..4, 6..9 */
+        case 97 : case 98 : case 99 : case 100 : case 102 : case 103 : case 104 : case 105 : player.move(keycode); break;
+
+        case 101 : /* 5 */ player.doNothing(); break;
+        case 190 : /* . */ player.doNothing(); break;
+
+        default  : /* ignore the keypress */   break;
+
+      }
+
+    }
+
+
+
+    function bootstrap() {
+
+      console.log('bootstrap');
+      needsRender();
+      document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); }
 
     }
 
@@ -95,12 +155,11 @@ var rl = (function(document) {
       renderMap: stringMapToTable,
       renderString: renderString,
 
-      keyHandler: keyHandler
+      keyHandler: keyHandler,
+      bootstrap: bootstrap
 
     };
 
 
 
 })(document);
-
-rl.renderString(thisMap, 40);
