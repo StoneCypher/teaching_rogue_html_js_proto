@@ -1,6 +1,7 @@
 
 var fs         = require('fs'),
     path       = require('path'),
+    less       = require('gulp-less'),
     clean      = require('gulp-clean'),
     source     = require('vinyl-source-stream'),
     gulp       = require('gulp'),
@@ -58,6 +59,24 @@ gulp.task('make-directories', ['clean'], function() {
     catch(e) { if (e.code !== 'EEXIST') { console.log('caught ' + JSON.stringify(e) + ' while making dirs'); } }
   }
 
+});
+
+
+
+
+
+gulp.task('less', function () {
+  return gulp.src('./' + hostdir + 'stylesheets/app.less')
+    .pipe(less())
+    .pipe(gulp.dest('./' + hostdir));
+});
+
+
+
+
+
+gulp.task('watch', function () {
+  gulp.watch('./' + hostdir + 'stylesheets/**/*', ['less-transform']);
 });
 
 

@@ -20,7 +20,8 @@
     "browserify": "*",
     "flocks.js": "*",
     "gulp": "*",
-    "gulp-clean": "^0.3.1",
+    "gulp-clean": "*",
+    "gulp-less": "*",
     "react": "*",
     "reactify": "*",
     "vinyl-source-stream": "*"
