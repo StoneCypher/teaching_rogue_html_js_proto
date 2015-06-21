@@ -1,0 +1,3 @@
+table, td { font-family: inconsolata, consolas, monospace; }
+table     { border-collapse: collapse; }
+td        { height: 1em; width: 1em; vertical-align: center; text-align: center; }
