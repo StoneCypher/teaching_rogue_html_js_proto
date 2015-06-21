@@ -1,183 +1,183 @@
 
 var rl = (function(document) {
 
-
-
-    function needsRender() {
-      renderString(thisMap, 40);
-    }
+  'use strict';
 
 
 
-    var player = {
-
-        loc        : {x: 20, y: 4},
-        doNothing  : function() {},  // whargarbl todo
-
-
-        locIsValid : function(X, Y) {
-          if ((X < 0) || (Y < 0) || (X >= 40) || (Y >= 20)) { return false; } // whargarbl todo magic constants
-          switch (thisMap[(Y*40) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
-            case '.' : return true;
-            case '+' : return true; // whargarbl todo wrong
-            default  : return false;
-          }
-        }, // whargarbl todo
-
-
-        tryMoveBy  : function(dX, dY) {
-
-          var newX = player.loc.x + dX,
-              newY = player.loc.y + dY;
-
-          if (player.locIsValid(newX, newY)) {
-            player.loc.x = newX;
-            player.loc.y = newY;
-            needsRender();
-          }
-
-        },
-
-
-        move : function(npad) {
-
-          switch (npad) {
-
-            case 97  : /* 1 */ player.tryMoveBy(-1,  1); break;
-            case 98  : /* 2 */ player.tryMoveBy( 0,  1); break;
-            case 99  : /* 3 */ player.tryMoveBy( 1,  1); break;
-
-            case 100 : /* 4 */ player.tryMoveBy(-1,  0); break;
-            case 102 : /* 6 */ player.tryMoveBy( 1,  0); break;
-
-            case 103 : /* 7 */ player.tryMoveBy(-1, -1); break;
-            case 104 : /* 8 */ player.tryMoveBy( 0, -1); break;
-            case 105 : /* 9 */ player.tryMoveBy( 1, -1); break;
-
-            default  : throw 'nonsense keypress to player.move';
-
-          }
-
-        }
-
-    };
+  function needsRender() {
+    renderString(thisMap, 40);
+  }
 
 
 
-    function classFor(cellType) {
+  var player = {
 
-      switch (cellType) {
+    loc        : {x: 20, y: 4},
+    doNothing  : function() {},  // whargarbl todo
 
-        case '@' : return 'player';
-        case '#' : return 'wall';
-        case '+' : return 'door';
-        case '$' : return 'gold';
-        case '.' : return 'floor';
 
-        case '{' : case '|' : case '}' : case '/' :
-                   return 'weapon';
+    locIsValid : function(X, Y) {
+      if ((X < 0) || (Y < 0) || (X >= 40) || (Y >= 20)) { return false; } // whargarbl todo magic constants
+      switch (thisMap[(Y*40) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
+        case '.' : return true;
+        case '+' : return true; // whargarbl todo wrong
+        default  : return false;
+      }
+    }, // whargarbl todo
 
-        case 'a' : case 'b' : case 'c' : case 'd' : case 'e' : case 'f' : case 'g' : case 'h' : case 'i' : case 'j' : case 'k' : case 'l' : case 'm' : case 'n' : case 'o' : case 'p' : case 'q' :  case 'r' :  case 's' : case 't' : case 'u' : case 'v' : case 'w' : case 'x' : case 'y' :  case 'z' :
-        case 'A' : case 'B' : case 'C' : case 'D' : case 'E' : case 'F' : case 'G' : case 'H' : case 'I' : case 'J' : case 'K' : case 'L' : case 'M' : case 'N' : case 'O' : case 'P' : case 'Q' :  case 'R' :  case 'S' : case 'T' : case 'U' : case 'V' : case 'W' : case 'X' : case 'Y' :  case 'Z' :
-                   return 'monster';
 
-        default  : return 'misc';
+    tryMoveBy  : function(dX, dY) {
+
+      var newX = player.loc.x + dX,
+          newY = player.loc.y + dY;
+
+      if (player.locIsValid(newX, newY)) {
+        player.loc.x = newX;
+        player.loc.y = newY;
+        needsRender();
+      }
+
+    },
+
+
+    move : function(npad) {
+
+      switch (npad) {
+
+        case 97  : /* 1 */ player.tryMoveBy(-1,  1); break;
+        case 98  : /* 2 */ player.tryMoveBy( 0,  1); break;
+        case 99  : /* 3 */ player.tryMoveBy( 1,  1); break;
+
+        case 100 : /* 4 */ player.tryMoveBy(-1,  0); break;
+        case 102 : /* 6 */ player.tryMoveBy( 1,  0); break;
+
+        case 103 : /* 7 */ player.tryMoveBy(-1, -1); break;
+        case 104 : /* 8 */ player.tryMoveBy( 0, -1); break;
+        case 105 : /* 9 */ player.tryMoveBy( 1, -1); break;
+
+        default  : throw 'nonsense keypress to player.move';
 
       }
 
     }
 
+  };
 
 
-    function stringMapToTable(MapData, Width) {
 
-      var table  = document.createElement('table'),
-          height = 20,  // todo whargarbl
-          idx    = 0;
+  function classFor(cellType) {
 
-      for (var j=0; j < height; ++j) {
+    switch (cellType) {
 
-        var tr = document.createElement('tr');
+      case '@' : return 'player';
+      case '#' : return 'wall';
+      case '+' : return 'door';
+      case '$' : return 'gold';
+      case '.' : return 'floor';
 
-        for (var i=0; i < Width; ++i) {
+      case '{' : case '|' : case '}' : case '/' :
+                 return 'weapon';
 
-          var td       = document.createElement('td'),
-              cellType = MapData[idx++]
-              override = false;
+      case 'a' : case 'b' : case 'c' : case 'd' : case 'e' : case 'f' : case 'g' : case 'h' : case 'i' : case 'j' : case 'k' : case 'l' : case 'm' : case 'n' : case 'o' : case 'p' : case 'q' :  case 'r' :  case 's' : case 't' : case 'u' : case 'v' : case 'w' : case 'x' : case 'y' :  case 'z' :
+      case 'A' : case 'B' : case 'C' : case 'D' : case 'E' : case 'F' : case 'G' : case 'H' : case 'I' : case 'J' : case 'K' : case 'L' : case 'M' : case 'N' : case 'O' : case 'P' : case 'Q' :  case 'R' :  case 'S' : case 'T' : case 'U' : case 'V' : case 'W' : case 'X' : case 'Y' :  case 'Z' :
+                 return 'monster';
 
-          // lol whargarbl todo this is fucking awful what's wrong with you
-          if ((i === player.loc.x) && (j === player.loc.y)) { override = '@'; }
+      default  : return 'misc';
 
-          td.innerHTML = override? override : cellType;
-          td.className = classFor(override? override : cellType);
-          tr.appendChild(td);
+    }
 
-        }
+  }
 
-        table.appendChild(tr);
+
+
+  function stringMapToTable(MapData, Width) {
+
+    var table  = document.createElement('table'),
+        height = 20,  // todo whargarbl
+        idx    = 0;
+
+    for (var j=0; j < height; ++j) {
+
+      var tr = document.createElement('tr');
+
+      for (var i=0; i < Width; ++i) {
+
+        var td       = document.createElement('td'),
+            cellType = MapData[idx++]
+            override = false;
+
+        // lol whargarbl todo this is fucking awful what's wrong with you
+        if ((i === player.loc.x) && (j === player.loc.y)) { override = '@'; }
+
+        td.innerHTML = override? override : cellType;
+        td.className = classFor(override? override : cellType);
+        tr.appendChild(td);
 
       }
 
-      return table;
+      table.appendChild(tr);
 
     }
 
+    return table;
+
+  }
 
 
 
-    function renderString(MapData, Width) {
 
-      var body = document.getElementById('mapdiv'),
-          newC = stringMapToTable(MapData, Width);
+  function renderString(MapData, Width) {
 
-      body.innerHTML = '';
-      body.appendChild(newC);
+    var body = document.getElementById('mapdiv'),
+        newC = stringMapToTable(MapData, Width);
 
-    }
+    body.innerHTML = '';
+    body.appendChild(newC);
 
-
-
-    function keyHandler(keyEvent) {
-
-      console.log('handler');
-
-      var keycode = (keyEvent || window.event).keyCode;
-
-      switch (keycode) {
-
-        /* 1..4, 6..9 */
-        case 97 : case 98 : case 99 : case 100 : case 102 : case 103 : case 104 : case 105 : player.move(keycode); break;
-
-        case 101 : /* 5 */ player.doNothing(); break;
-        case 190 : /* . */ player.doNothing(); break;
-
-        default  : /* ignore the keypress */   break;
-
-      }
-
-    }
+  }
 
 
 
-    function bootstrap() {
+  function keyHandler(keyEvent) {
 
-      console.log('bootstrap');
-      needsRender();
-      document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); }
+    var keycode = (keyEvent || window.event).keyCode;
+
+    switch (keycode) {
+
+      /* 1..4, 6..9 */
+      case 97 : case 98 : case 99 : case 100 : case 102 : case 103 : case 104 : case 105 : player.move(keycode); break;
+
+      case 101 : /* 5 */ player.doNothing(); break;
+      case 190 : /* . */ player.doNothing(); break;
+
+      default  : /* ignore the keypress */   break;
 
     }
 
+  }
 
 
-    return {
 
-      renderMap: stringMapToTable,
-      renderString: renderString,
+  function bootstrap() {
 
-      keyHandler: keyHandler,
-      bootstrap: bootstrap
+    console.log('bootstrap');
+    needsRender();
+    document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); }
 
-    };
+  }
+
+
+
+  return {
+
+    renderMap: stringMapToTable,
+    renderString: renderString,
+
+    keyHandler: keyHandler,
+    bootstrap: bootstrap
+
+  };
 
 
 
