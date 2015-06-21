@@ -13,7 +13,7 @@ var rl = (function(document) {
 
 
   function needsRender() {
-    renderString(thisMap, Map.width);
+    renderString(Map.data, Map.width);
   }
 
 
@@ -26,7 +26,7 @@ var rl = (function(document) {
 
     locIsValid : function(X, Y) {
       if ((X < 0) || (Y < 0) || (X >= Map.width) || (Y >= Map.height)) { return false; } // whargarbl todo magic constants
-      switch (thisMap[(Y * Map.width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
+      switch (Map.data[(Y * Map.width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
         case '.' : return true;
         case '+' : return true; // whargarbl todo wrong
         default  : return false;
@@ -111,7 +111,7 @@ var rl = (function(document) {
       for (var i=0; i < Width; ++i) {
 
         var td       = document.createElement('td'),
-            cellType = MapData[idx++],
+            cellType = Map.data[idx++],
             override = false;
 
         // lol whargarbl todo this is fucking awful what's wrong with you
