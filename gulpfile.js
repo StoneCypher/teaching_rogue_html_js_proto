@@ -31,6 +31,7 @@ var dirs = { // todo whargarbl pull these out into a support file at some point
   publish_assets : './build/publish/assets',
   assets         : './src/assets',
   html           : './site',
+  js             : './src/js',
   react          : './src/jsx',
   docs           : './build/docs',
   src            : './src'
@@ -94,8 +95,5 @@ gulp.task('react', ['make-directories'], function() {
 
 
 
-gulp.task('default', function() {
-
-
-
-});
+gulp.task('build',   ['react']);
+gulp.task('default', ['build']);
