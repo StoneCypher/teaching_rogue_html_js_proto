@@ -83,7 +83,7 @@ var RendererFactory = (function(window, document) {
 
 
       return {
-        needsRender: function() { render(Map, Player); }
+        needsRender: function() { console.log('should!'); render(Map, Player); }
       };
     }
 

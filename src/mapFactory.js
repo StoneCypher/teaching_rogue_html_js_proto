@@ -50,6 +50,7 @@ var mapFactory = (function() {
 
 
       function canPass(X, Y) {
+        console.log('hiya! ' + X.toString() + ', ' + Y.toString());
         if ((X < 0) || (Y < 0) || (X >= width) || (Y >= height)) { return false; } // whargarbl todo magic constants
         switch (thisMap[(Y * width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
           case '.' : return true;
