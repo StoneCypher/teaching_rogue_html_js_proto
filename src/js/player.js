@@ -73,7 +73,8 @@ module.exports = {
       doNothing  : function() {},  // whargarbl todo
       tryMoveBy  : tryMoveBy,
       move       : move,
-      loc        : { x: x, y: y }
+      x          : function() { return x; },
+      y          : function() { return y; },
 
     };
 

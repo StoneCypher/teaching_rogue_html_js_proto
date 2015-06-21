@@ -57,7 +57,7 @@ function stringMapToTable() {
           override = false;
 
       // lol whargarbl todo this is fucking awful what's wrong with you
-      if ((i === Player.loc.x) && (j === Player.loc.y)) { override = '@'; }
+      if ((i === Player.x()) && (j === Player.y())) { override = '@'; }
 
       td.innerHTML = override? override : cellType;
       td.className = classFor(override? override : cellType);
