@@ -13,7 +13,7 @@ var rl = (function(document) {
 
 
   function needsRender() {
-    renderString(thisMap, 40);
+    renderString(thisMap, Map.width);
   }
 
 
@@ -25,8 +25,8 @@ var rl = (function(document) {
 
 
     locIsValid : function(X, Y) {
-      if ((X < 0) || (Y < 0) || (X >= 40) || (Y >= 20)) { return false; } // whargarbl todo magic constants
-      switch (thisMap[(Y*40) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
+      if ((X < 0) || (Y < 0) || (X >= Map.width) || (Y >= Map.height)) { return false; } // whargarbl todo magic constants
+      switch (thisMap[(Y * Map.width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
         case '.' : return true;
         case '+' : return true; // whargarbl todo wrong
         default  : return false;
@@ -101,7 +101,7 @@ var rl = (function(document) {
   function stringMapToTable(MapData, Width) {
 
     var table  = document.createElement('table'),
-        height = 20,  // todo whargarbl
+        height = Map.height,
         idx    = 0;
 
     for (var j=0; j < height; ++j) {
@@ -170,7 +170,7 @@ var rl = (function(document) {
 
     console.log('bootstrap');
     needsRender();
-    document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); };
+    document.body.onkeyup = function(ke) { keyHandler(ke); };
 
   }
 
