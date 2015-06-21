@@ -27,36 +27,35 @@ td {
   vertical-align: center;
   text-align: center;
   border-collapse: collapse;
-}
-.player {
-  color: black;
-  background-color: white;
-}
-.misc {
   color: black;
   background-color: #eee;
 }
-.gold {
+td.gold {
   color: brown;
   background-color: yellow;
 }
-.floor {
+td.floor {
   color: gray;
   background-color: #eee;
 }
-.wall {
+td.wall {
   color: gray;
   background-color: #555;
 }
-.door {
+td.door {
   color: brown;
   background-color: #cb8;
 }
-.monster {
-  color: red;
-  background-color: #fbb;
-}
-.weapon {
+td.weapon {
   color: white;
   background-color: gray;
+}
+table td.player {
+  color: black;
+}
+table td.kobold {
+  color: green;
+}
+table td.dragon {
+  color: red;
 }

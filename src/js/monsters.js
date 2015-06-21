@@ -6,8 +6,8 @@
 
 
 var monsterList = [
-  { x: 20, y: 3, name: 'Kobold', symbol: 'k', color: 'green' },
-  { x: 20, y: 5, name: 'Dragon', symbol: 'D', color: 'blue'  }
+  { x: 20, y: 3, name: 'Kobold', symbol: 'k', className: 'kobold' },
+  { x: 21, y: 5, name: 'Dragon', symbol: 'D', className: 'dragon' }
 ];
 
 

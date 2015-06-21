@@ -1,17 +1,16 @@
-html, body { margin: 0; padding: 0; border: 0; }
+html, body      { margin: 0; padding: 0; border: 0; }
 
-table, td  { font-family: inconsolata, consolas, monospace; font-size: 20px; margin: 0; padding: 0; border: 0; }
-table      { border-collapse: collapse; }
-tr, td     { margin: 0; padding: 0; border: 0; }
-td         { height: 24px; width: 20px; vertical-align: center; text-align: center; border-collapse: collapse; }
+table, td       { font-family: inconsolata, consolas, monospace; font-size: 20px; margin: 0; padding: 0; border: 0; }
+table           { border-collapse: collapse; }
+tr, td          { margin: 0; padding: 0; border: 0; }
+td              { height: 24px; width: 20px; vertical-align: center; text-align: center; border-collapse: collapse; color: black; background-color: #eee; }
 
-.player    { color: black; background-color: white; }
+td.gold         { color: brown; background-color: yellow; }
+td.floor        { color: gray;  background-color: #eee; }
+td.wall         { color: gray;  background-color: #555; }
+td.door         { color: brown; background-color: #cb8; }
+td.weapon       { color: white; background-color: gray; }
 
-.misc      { color: black; background-color: #eee; }
-
-.gold      { color: brown; background-color: yellow; }
-.floor     { color: gray;  background-color: #eee; }
-.wall      { color: gray;  background-color: #555; }
-.door      { color: brown; background-color: #cb8; }
-.monster   { color: red;   background-color: #fbb; }
-.weapon    { color: white; background-color: gray; }
+table td.player { color: black; }
+table td.kobold { color: green; }
+table td.dragon { color: red; }
