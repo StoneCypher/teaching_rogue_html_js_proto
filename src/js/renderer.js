@@ -41,18 +41,19 @@ function classFor(cellType) {
 
 function stringMapToTable() {
 
-  var table  = document.createElement('table'),
-      height = Map.height,
-      idx    = 0;
+  var uMap   = Map.getMap();
+  var table  = document.createElement('table');
+  var height = uMap.height;
+  var idx    = 0;
 
-  for (var j=0; j < Map.height; ++j) {
+  for (var j=0; j < uMap.height; ++j) {
 
     var tr = document.createElement('tr');
 
-    for (var i=0; i < Map.width; ++i) {
+    for (var i=0; i < uMap.width; ++i) {
 
       var td       = document.createElement('td'),
-          cellType = Map.data[idx++],
+          cellType = uMap.data[idx++],
           override = false;
 
       // lol whargarbl todo this is fucking awful what's wrong with you
@@ -91,6 +92,7 @@ function render() {
 
 
 function needsRender() {
+  console.log('attempting render');
   render(Map, Player);
 }
 
