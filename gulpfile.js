@@ -31,7 +31,7 @@ var dirs = { // todo whargarbl pull these out into a support file at some point
   publish        : './build/publish',
   publish_assets : './build/publish/assets',
   assets         : './src/assets',
-  html           : './site',
+  html           : './src/html',
   js             : './src/js',
   react          : './src/jsx',
   docs           : './build/docs',
@@ -64,11 +64,33 @@ gulp.task('make-directories', ['clean'], function() {
 
 
 
+gulp.task('publish', ['make-directories', 'react', 'sass-transform'], function() {
+
+  var lcmds       = [],
+      assets      = [
+        { source: dirs.html       + '/index.html', destination: dirs.publish },
+        { source: dirs.src        + '/rl.css',     destination: dirs.publish },
+        { source: dirs.src        + '/rl.js',      destination: dirs.publish },
+        { source: dirs.flocks_npm + '/flocks.jsx', destination: dirs.publish },
+        { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
+        { source: dirs.built_js   + '/bundle.js',  destination: dirs.publish }
+      ];
+
+  assets.map(function(target) {
+    lcmds.push('cp -rf ' + target.source + ' ' + target.destination + ' 2>/dev/null || :');
+  });
+
+  return gulp.run(shell.task(lcmds));
+
+});
+
+
+
+
+
 gulp.task('react', ['make-directories'], function() {
 
   var browserifyConfig = {
-//  "entries"    : [dirs.src + path.sep + "environment.js", dirs.src + path.sep + "util.js", dirs.src + path.sep + "global-components-ui.js"],
-    "entries"    : [],
     "extensions" : [".jsx"]
   };
 
