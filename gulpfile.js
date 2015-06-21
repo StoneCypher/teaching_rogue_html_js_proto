@@ -129,6 +129,8 @@ gulp.task('react', ['make-directories'], function() {
     .add(dirs.js         + "/map.js",      { "expose" : "map" })
     .add(dirs.js         + "/rl.js",       { "expose" : "rl" })
 
+    .add(dirs.js         + "/boot.js",     { "expose" : "boot" })
+
     .bundle()
 
     .on("error", errorHandler)
