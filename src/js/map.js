@@ -86,10 +86,9 @@ function getMap() {
 
 
 
-function gen(Options) {
-  console.log('generating map');
+function init(Options) {
   currMap = create(Options);
-  return currMap;
+  return module.exports;
 }
 
 
@@ -104,7 +103,7 @@ module.exports = {
 
   create  : create,
   getMap  : getMap,
-  gen     : gen,
+  init    : init,
   canPass : canPass
 
 };

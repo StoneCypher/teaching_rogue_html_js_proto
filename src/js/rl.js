@@ -18,17 +18,16 @@ var PlayerOptions = {
 
 
 
-var Map      = require('map').gen(MapOptions),
+var Map      = require('map').init(MapOptions),
     Player   = require('player').create(PlayerOptions), // whargarbl uh oh
     Renderer = require('renderer'),
-    UI       = require('ui').create();
+    UI       = require('ui');
 
 
 
 
 
 function bootstrap() {
-  console.log('bootstrapping');
   document.body.onkeyup = function(ke) { UI.keyHandler(ke); };
   Renderer.needsRender();
 }

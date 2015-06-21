@@ -61,6 +61,7 @@ function move(npad) {
 function create(Options) {
   x = Options.initialLoc.x;
   y = Options.initialLoc.y;
+  return module.exports;
 }
 
 

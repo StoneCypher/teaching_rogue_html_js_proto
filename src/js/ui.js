@@ -8,35 +8,23 @@ var Player   = require('player'),
 
 
 
-function create() {
+function keyHandler(keyEvent) {
 
-  function keyHandler(keyEvent) {
+  var keycode = (keyEvent || window.event).keyCode;
 
-    var keycode = (keyEvent || window.event).keyCode;
+  switch (keycode) {
 
-    switch (keycode) {
+    /* 1..4, 6..9 */
+    case 97 : case 98 : case 99 : case 100 : case 102 : case 103 : case 104 : case 105 :
+        if (Player.move(keycode)) { Renderer.needsRender(); }
+        break;
 
-      /* 1..4, 6..9 */
-      case 97 : case 98 : case 99 : case 100 : case 102 : case 103 : case 104 : case 105 :
-          if (Player.move(keycode)) { Renderer.needsRender(); }
-          break;
+    case 101 : /* 5 */ Player.doNothing(); break;
+    case 190 : /* . */ Player.doNothing(); break;
 
-      case 101 : /* 5 */ Player.doNothing(); break;
-      case 190 : /* . */ Player.doNothing(); break;
-
-      default  : /* ignore the keypress */   break;
-
-    }
+    default  : /* ignore the keypress */   break;
 
   }
-
-
-
-  return {
-
-    keyHandler: keyHandler
-
-  };
 
 }
 
@@ -45,5 +33,5 @@ function create() {
 
 
 module.exports = {
-  create: create
+  keyHandler: keyHandler
 };
