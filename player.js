@@ -1,0 +1,6 @@
+
+var PlayerFactory = (function() {
+
+  return {};
+
+})();
