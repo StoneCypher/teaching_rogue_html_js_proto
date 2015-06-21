@@ -1,0 +1,19 @@
+{
+  "name": "teaching_rogue_html_js_proto",
+  "version": "0.2.0",
+  "description": "prototype of rogue teacher",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StoneCypher/teaching_rogue_html_js_proto.git"
+  },
+  "author": "John Haugeland <stonecypher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StoneCypher/teaching_rogue_html_js_proto/issues"
+  },
+  "homepage": "https://github.com/StoneCypher/teaching_rogue_html_js_proto"
+}
