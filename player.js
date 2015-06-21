@@ -1,6 +1,6 @@
 
 var PlayerFactory = (function() {
 
-  return {};
+  'use strict';
 
 })();
