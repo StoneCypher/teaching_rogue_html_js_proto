@@ -1,6 +1,7 @@
 
 var fs         = require('fs'),
     path       = require('path'),
+    shell      = require('gulp-shell'),
     less       = require('gulp-less'),
     clean      = require('gulp-clean'),
     source     = require('vinyl-source-stream'),
@@ -67,7 +68,7 @@ gulp.task('make-directories', ['clean'], function() {
 
 
 
-gulp.task('less', function () {
+gulp.task('less', ['make-directories'], function () {
   return gulp.src(dirs.less + '/app.less')
     .pipe(less())
     .pipe(gulp.dest(dirs.built_css));
@@ -85,20 +86,20 @@ gulp.task('watch', function () {
 
 
 
-gulp.task('publish', ['make-directories', 'react', 'sass-transform'], function() {
+gulp.task('publish', ['make-directories', 'react', 'build', 'less'], function() {
 
   var lcmds       = [],
       assets      = [
         { source: dirs.html       + '/index.html', destination: dirs.publish },
         { source: dirs.built_css  + '/app.css',    destination: dirs.publish },
-        { source: dirs.src        + '/rl.js',      destination: dirs.publish },
+        { source: dirs.js         + '/rl.js',      destination: dirs.publish },
         { source: dirs.flocks_npm + '/flocks.jsx', destination: dirs.publish },
-        { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
+//      { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
         { source: dirs.built_js   + '/bundle.js',  destination: dirs.publish }
       ];
 
   assets.map(function(target) {
-    lcmds.push('cp -rf ' + target.source + ' ' + target.destination + ' 2>/dev/null || :');
+    lcmds.push('cp -rf ' + target.source + ' ' + target.destination);
   });
 
   return gulp.run(shell.task(lcmds));
