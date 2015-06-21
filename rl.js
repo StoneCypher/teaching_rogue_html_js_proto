@@ -16,6 +16,7 @@ var rl = (function(document) {
 
 
         locIsValid : function(X, Y) {
+          if ((X < 0) || (Y < 0) || (X >= 40) || (Y >= 20)) { return false; } // whargarbl todo magic constants
           switch (thisMap[(Y*40) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
             case '.' : return true;
             case '+' : return true; // whargarbl todo wrong
