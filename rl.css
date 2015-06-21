@@ -2,5 +2,8 @@ table, td { font-family: inconsolata, consolas, monospace; }
 table     { border-collapse: collapse; }
 td        { height: 1em; width: 0.8em; vertical-align: center; text-align: center; }
 
+.player   { color: black; background-color: white; }
+
 .wall     { color: gray;  background-color: #eee; }
 .door     { color: brown; background-color: #eea; }
+.monster  { color: red;   background-color: #fbb; }
