@@ -1,3 +1,6 @@
 table, td { font-family: inconsolata, consolas, monospace; }
 table     { border-collapse: collapse; }
 td        { height: 1em; width: 0.8em; vertical-align: center; text-align: center; }
+
+.wall     { color: gray;  background-color: #eee; }
+.door     { color: brown; background-color: #eea; }
