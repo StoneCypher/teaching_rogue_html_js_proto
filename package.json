@@ -18,6 +18,7 @@
   "homepage": "https://github.com/StoneCypher/teaching_rogue_html_js_proto",
   "devDependencies": {
     "browserify": "*",
+    "flocks.js": "*",
     "gulp": "*",
     "react": "*",
     "reactify": "*",

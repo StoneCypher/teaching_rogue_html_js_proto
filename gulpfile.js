@@ -81,7 +81,7 @@ gulp.task('react', ['make-directories'], function() {
 
   return browserify(browserifyConfig, { "debug" : !production })
     .transform({ "es6" : true }, reactify)
-//  .add(dirs.react_npm      + "/react.js",   { "expose" : "react" })
+    .add(dirs.react_npm      + "/react.js",   { "expose" : "react" })
 //  .add(dirs.flocks_npm     + "/flocks.jsx", { "expose" : "flocks" })
 //  .add(dirs.src + path.sep +  "repdef.jsx", { "expose" : "repdef" })
     .bundle()
