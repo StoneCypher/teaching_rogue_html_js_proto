@@ -5,8 +5,9 @@
 
 
 
-var Player = require('player'),
-    Map    = require('map');
+var Player   = require('player'),
+    Map      = require('map'),
+    Monsters = require('monsters');
 
 
 
@@ -54,10 +55,12 @@ function stringMapToTable() {
 
       var td       = document.createElement('td'),
           cellType = Map.data()[idx++],
-          override = false;
+          override = false,
+          mHere    = Monsters.at(i,j);
 
       // lol whargarbl todo this is fucking awful what's wrong with you
-      if ((i === Player.x()) && (j === Player.y())) { override = '@'; }
+      if      ((i === Player.x()) && (j === Player.y())) { override = '@'; }
+      else if (mHere.length)                             { override = mHere[0].symbol; }
 
       td.innerHTML = override? override : cellType;
       td.className = classFor(override? override : cellType);
