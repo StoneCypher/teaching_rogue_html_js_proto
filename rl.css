@@ -4,6 +4,11 @@ td        { height: 1em; width: 0.8em; vertical-align: center; text-align: cente
 
 .player   { color: black; background-color: white; }
 
-.wall     { color: gray;  background-color: #eee; }
-.door     { color: brown; background-color: #eea; }
+.misc     { color: black; background-color: #eee; }
+
+.gold     { color: brown; background-color: yellow; }
+.floor    { color: gray;  background-color: #eee; }
+.wall     { color: gray;  background-color: #555; }
+.door     { color: brown; background-color: #cb8; }
 .monster  { color: red;   background-color: #fbb; }
+.weapon   { color: white; background-color: gray; }
