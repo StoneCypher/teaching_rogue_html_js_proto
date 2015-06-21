@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StoneCypher/teaching_rogue_html_js_proto/issues"
   },
-  "homepage": "https://github.com/StoneCypher/teaching_rogue_html_js_proto"
+  "homepage": "https://github.com/StoneCypher/teaching_rogue_html_js_proto",
+  "devDependencies": {
+    "gulp": "*"
+  }
 }
