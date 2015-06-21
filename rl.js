@@ -8,7 +8,12 @@ var rl = (function(document) {
     width: 40
   };
 
-  var Map = mapFactory.create(MapOptions);
+  var PlayerOptions = {
+    loc : {x: 20, y: 4}
+  };
+
+  var Map    = mapFactory.create(MapOptions),
+      Player = PlayerFactory.create(PlayerOptions);
 
 
 
