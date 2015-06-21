@@ -1,0 +1,6 @@
+
+var UiFactory = (function() {
+
+  return {};
+
+})();
