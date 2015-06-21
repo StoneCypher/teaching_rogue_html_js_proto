@@ -53,7 +53,7 @@ function stringMapToTable() {
     for (var i=0; i < uMap.width; ++i) {
 
       var td       = document.createElement('td'),
-          cellType = uMap.data[idx++],
+          cellType = Map.data()[idx++],
           override = false;
 
       // lol whargarbl todo this is fucking awful what's wrong with you
@@ -92,7 +92,6 @@ function render() {
 
 
 function needsRender() {
-  console.log('attempting render');
   render(Map, Player);
 }
 
@@ -101,11 +100,5 @@ function needsRender() {
 
 
 module.exports = {
-
-  create: function() {
-    return {
-      needsRender: needsRender,
-    };
-  }
-
+  needsRender: needsRender
 };

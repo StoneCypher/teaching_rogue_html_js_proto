@@ -20,7 +20,7 @@ var PlayerOptions = {
 
 var Map      = require('map').gen(MapOptions),
     Player   = require('player').create(PlayerOptions), // whargarbl uh oh
-    Renderer = require('renderer').create(),
+    Renderer = require('renderer'),
     UI       = require('ui').create();
 
 
