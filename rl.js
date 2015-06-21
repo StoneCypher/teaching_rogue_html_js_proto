@@ -3,6 +3,13 @@ var rl = (function(document) {
 
   'use strict';
 
+  var MapOptions = {
+    height: 20,
+    width: 40
+  };
+
+  var Map = mapFactory.create(MapOptions);
+
 
 
   function needsRender() {
@@ -104,7 +111,7 @@ var rl = (function(document) {
       for (var i=0; i < Width; ++i) {
 
         var td       = document.createElement('td'),
-            cellType = MapData[idx++]
+            cellType = MapData[idx++],
             override = false;
 
         // lol whargarbl todo this is fucking awful what's wrong with you
@@ -163,7 +170,7 @@ var rl = (function(document) {
 
     console.log('bootstrap');
     needsRender();
-    document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); }
+    document.body.onkeyup = function(ke) { console.log('key event'); keyHandler(ke); };
 
   }
 
