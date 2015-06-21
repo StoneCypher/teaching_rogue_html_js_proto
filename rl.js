@@ -24,22 +24,12 @@ var rl = (function(document) {
     doNothing  : function() {},  // whargarbl todo
 
 
-    locIsValid : function(X, Y) {
-      if ((X < 0) || (Y < 0) || (X >= Map.width) || (Y >= Map.height)) { return false; } // whargarbl todo magic constants
-      switch (Map.data[(Y * Map.width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
-        case '.' : return true;
-        case '+' : return true; // whargarbl todo wrong
-        default  : return false;
-      }
-    }, // whargarbl todo
-
-
     tryMoveBy  : function(dX, dY) {
 
       var newX = player.loc.x + dX,
           newY = player.loc.y + dY;
 
-      if (player.locIsValid(newX, newY)) {
+      if (Map.canPass(newX, newY)) {
         player.loc.x = newX;
         player.loc.y = newY;
         needsRender();
