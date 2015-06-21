@@ -27,6 +27,7 @@ var dirs = { // todo whargarbl pull these out into a support file at some point
 
   build          : './build',
   built_js       : './build/js',
+  built_css      : './build/css',
   react_npm      : './node_modules/react/dist',
   flocks_npm     : './node_modules/flocks.js/lib',
   publish        : './build/publish',
@@ -34,6 +35,7 @@ var dirs = { // todo whargarbl pull these out into a support file at some point
   assets         : './src/assets',
   html           : './src/html',
   js             : './src/js',
+  less           : './src/less',
   react          : './src/jsx',
   docs           : './build/docs',
   src            : './src'
@@ -66,9 +68,9 @@ gulp.task('make-directories', ['clean'], function() {
 
 
 gulp.task('less', function () {
-  return gulp.src('./' + hostdir + 'stylesheets/app.less')
+  return gulp.src(dirs.less + '/app.less')
     .pipe(less())
-    .pipe(gulp.dest('./' + hostdir));
+    .pipe(gulp.dest(dirs.built_css));
 });
 
 
@@ -88,7 +90,7 @@ gulp.task('publish', ['make-directories', 'react', 'sass-transform'], function()
   var lcmds       = [],
       assets      = [
         { source: dirs.html       + '/index.html', destination: dirs.publish },
-        { source: dirs.src        + '/rl.css',     destination: dirs.publish },
+        { source: dirs.built_css  + '/app.css',    destination: dirs.publish },
         { source: dirs.src        + '/rl.js',      destination: dirs.publish },
         { source: dirs.flocks_npm + '/flocks.jsx', destination: dirs.publish },
         { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
