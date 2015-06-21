@@ -1,6 +1,7 @@
 
 var fs         = require('fs'),
     path       = require('path'),
+    clean      = require('gulp-clean'),
     source     = require('vinyl-source-stream'),
     gulp       = require('gulp'),
     browserify = require('browserify'),
@@ -50,20 +51,12 @@ gulp.task('clean', function() {
 
 
 
-gulp.task('make-directories', ['clean', 'gc-copy-js'], function() {
+gulp.task('make-directories', ['clean'], function() {
 
   for (var key in dirs) {
     try      { fs.mkdirSync('.' + path.sep + path.normalize(dirs[key])); }
     catch(e) { if (e.code !== 'EEXIST') { console.log('caught ' + JSON.stringify(e) + ' while making dirs'); } }
   }
-
-});
-
-
-
-
-
-gulp.task('make-directories', function() {
 
 });
 
@@ -81,9 +74,9 @@ gulp.task('react', ['make-directories'], function() {
 
   return browserify(browserifyConfig, { "debug" : !production })
     .transform({ "es6" : true }, reactify)
-    .add(dirs.react_npm      + "/react.js",   { "expose" : "react" })
-//  .add(dirs.flocks_npm     + "/flocks.jsx", { "expose" : "flocks" })
-//  .add(dirs.src + path.sep +  "repdef.jsx", { "expose" : "repdef" })
+    .add(dirs.react_npm        + "/react.js",   { "expose" : "react" })
+    .add(dirs.flocks_npm       + "/flocks.jsx", { "expose" : "flocks" })
+    .add(dirs.react + path.sep + "tr.jsx",      { "expose" : "tr" })
     .bundle()
     .on("error", errorHandler)
     .pipe(source("bundle.js"))
