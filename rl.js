@@ -13,17 +13,33 @@ var rl = (function(document) {
 
         loc        : {x: 20, y: 4},
         doNothing  : function() {},  // whargarbl todo
-        locIsValid : function(X, Y) { return true; }, // whargarbl todo
+
+
+        locIsValid : function(X, Y) {
+          switch (thisMap[(Y*40) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
+            case '.' : return true;
+            case '+' : return true; // whargarbl todo wrong
+            default  : return false;
+          }
+        }, // whargarbl todo
+
+
         tryMoveBy  : function(dX, dY) {
+
           var newX = player.loc.x + dX,
               newY = player.loc.y + dY;
+
           if (player.locIsValid(newX, newY)) {
             player.loc.x = newX;
             player.loc.y = newY;
             needsRender();
           }
+
         },
-        move      : function(npad) {
+
+
+        move : function(npad) {
+
           switch (npad) {
 
             case 97  : /* 1 */ player.tryMoveBy(-1,  1); break;
@@ -38,7 +54,9 @@ var rl = (function(document) {
             case 105 : /* 9 */ player.tryMoveBy( 1, -1); break;
 
             default  : throw 'nonsense keypress to player.move';
+
           }
+
         }
 
     };
