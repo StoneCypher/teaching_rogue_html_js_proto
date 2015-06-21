@@ -3,6 +3,14 @@ var rl = (function(document) {
 
 
 
+    var player = {
+
+        loc: {x: 20, y: 4}
+
+    };
+
+
+
     function classFor(cellType) {
 
       switch (cellType) {
@@ -41,10 +49,14 @@ var rl = (function(document) {
         for (var i=0; i < Width; ++i) {
 
           var td       = document.createElement('td'),
-              cellType = MapData[idx++];
+              cellType = MapData[idx++]
+              override = false;
 
-          td.innerHTML = cellType;
-          td.className = classFor(cellType);
+          // lol whargarbl todo this is fucking awful what's wrong with you
+          if ((i === player.loc.x) && (j === player.loc.y)) { override = '@'; }
+
+          td.innerHTML = override? override : cellType;
+          td.className = classFor(override? override : cellType);
           tr.appendChild(td);
 
         }
