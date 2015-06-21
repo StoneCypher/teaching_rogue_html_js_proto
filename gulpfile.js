@@ -92,7 +92,6 @@ gulp.task('publish', ['make-directories', 'react', 'build', 'less'], function() 
       assets      = [
         { source: dirs.html       + '/index.html', destination: dirs.publish },
         { source: dirs.built_css  + '/app.css',    destination: dirs.publish },
-        { source: dirs.js         + '/rl.js',      destination: dirs.publish },
         { source: dirs.flocks_npm + '/flocks.jsx', destination: dirs.publish },
 //      { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
         { source: dirs.built_js   + '/bundle.js',  destination: dirs.publish }
@@ -117,11 +116,21 @@ gulp.task('react', ['make-directories'], function() {
   };
 
   return browserify(browserifyConfig, { "debug" : !production })
+
     .transform({ "es6" : true }, reactify)
-    .add(dirs.react_npm        + "/react.js",   { "expose" : "react" })
-    .add(dirs.flocks_npm       + "/flocks.jsx", { "expose" : "flocks" })
-    .add(dirs.react + path.sep + "tr.jsx",      { "expose" : "tr" })
+
+    .add(dirs.react_npm  + "/react.js",    { "expose" : "react" })
+    .add(dirs.flocks_npm + "/flocks.jsx",  { "expose" : "flocks" })
+    .add(dirs.react      + "/tr.jsx",      { "expose" : "tr" })
+
+    .add(dirs.js         + "/ui.js",       { "expose" : "ui" })
+    .add(dirs.js         + "/player.js",   { "expose" : "player" })
+    .add(dirs.js         + "/renderer.js", { "expose" : "renderer" })
+    .add(dirs.js         + "/map.js",      { "expose" : "map" })
+    .add(dirs.js         + "/rl.js",       { "expose" : "rl" })
+
     .bundle()
+
     .on("error", errorHandler)
     .pipe(source("bundle.js"))
     .pipe(gulp.dest(dirs.built_js));
