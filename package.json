@@ -19,6 +19,7 @@
   "devDependencies": {
     "browserify": "*",
     "gulp": "*",
+    "react": "*",
     "reactify": "*",
     "vinyl-source-stream": "*"
   }
