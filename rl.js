@@ -84,11 +84,18 @@ var rl = (function(document) {
 
 
 
+    function keyHandler(keyPressed) {
+
+    }
+
+
 
     return {
 
       renderMap: stringMapToTable,
-      renderString: renderString
+      renderString: renderString,
+
+      keyHandler: keyHandler
 
     };
 
