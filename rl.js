@@ -1,10 +1,52 @@
 
-var rl = (function() {
+var rl = (function(document) {
+
+
+
+    function stringMapToTable(MapData, Width) {
+
+      var table = document.createElement('table'),
+          height = 20; // todo whargarbl
+
+      for (var j=0; j < height; ++j) {
+        var tr = document.createElement('tr');
+        for (var i=0; i < Width; ++i) {
+          var td = document.createElement('td');
+          td.innerHTML = '.';
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+
+      return table;
+
+    }
+
+
+
+
+    function renderString(MapData, Width) {
+
+      var body = document.getElementById('mapdiv'),
+          newC = stringMapToTable(MapData, Width);
+
+      body.innerHTML = '';
+      body.appendChild(newC);
+
+    }
+
+
+
 
     return {
-      kind: 'rl'
+
+      renderMap: stringMapToTable,
+      renderString: renderString
+
     };
 
-})();
 
-window.alert(rl.kind);
+
+})(document);
+
+rl.renderString('', 40);
