@@ -119,18 +119,19 @@ gulp.task('react', ['make-directories'], function() {
 
     .transform({ "es6" : true }, reactify)
 
-    .add(dirs.react_npm  + "/react.js",    { "expose" : "react" })
-    .add(dirs.flocks_npm + "/flocks.jsx",  { "expose" : "flocks" })
-    .add(dirs.react      + "/tr.jsx",      { "expose" : "tr" })
+    .add(dirs.react_npm  + "/react.js",       { "expose" : "react" })
+    .add(dirs.flocks_npm + "/flocks.jsx",     { "expose" : "flocks" })
+    .add(dirs.react      + "/tr.jsx",         { "expose" : "tr" })
 
-    .add(dirs.js         + "/ui.js",       { "expose" : "ui" })
-    .add(dirs.js         + "/player.js",   { "expose" : "player" })
-    .add(dirs.js         + "/renderer.js", { "expose" : "renderer" })
-    .add(dirs.js         + "/map.js",      { "expose" : "map" })
-    .add(dirs.js         + "/rl.js",       { "expose" : "rl" })
-    .add(dirs.js         + "/monsters.js", { "expose" : "monsters" })
+    .add(dirs.js         + "/ui.js",          { "expose" : "ui" })
+    .add(dirs.js         + "/player.js",      { "expose" : "player" })
+    .add(dirs.js         + "/renderer.js",    { "expose" : "renderer" })
+    .add(dirs.js         + "/map.js",         { "expose" : "map" })
+    .add(dirs.js         + "/rl.js",          { "expose" : "rl" })
+    .add(dirs.js         + "/monsters.js",    { "expose" : "monsters" })
+    .add(dirs.js         + "/baseMonster.js", { "expose" : "baseMonster" })
 
-    .add(dirs.js         + "/boot.js",     { "expose" : "boot" })
+    .add(dirs.js         + "/boot.js",        { "expose" : "boot" })
 
     .bundle()
 

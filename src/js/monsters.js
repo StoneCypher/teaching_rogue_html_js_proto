@@ -1,13 +1,15 @@
 
 'use strict';
 
+var baseMonster = require('baseMonster');
+
 
 
 
 
 var monsterList = [
-  { x: 20, y: 3, name: 'Kobold', symbol: 'k', className: 'kobold' },
-  { x: 21, y: 5, name: 'Dragon', symbol: 'D', className: 'dragon' }
+  baseMonster.param({ x: 20, y: 3, name: 'Kobold', symbol: 'k', className: 'kobold' }),
+  baseMonster.param({ x: 21, y: 5, name: 'Dragon', symbol: 'D', className: 'dragon' })
 ];
 
 
@@ -15,9 +17,7 @@ var monsterList = [
 
 
 function init(Options) {
-
   return module.exports;
-
 }
 
 

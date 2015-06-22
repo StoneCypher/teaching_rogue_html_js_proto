@@ -46,6 +46,10 @@ td.door {
   color: brown;
   background-color: #cb8;
 }
+td.monster {
+  color: red;
+  background-color: #fbb;
+}
 td.weapon {
   color: white;
   background-color: gray;
