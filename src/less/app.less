@@ -1,18 +1,27 @@
 
 @import 'metrics.less';
 
+*               { box-sizing: border-box; }
+
 html, body      { margin: 0; padding: 0; border: 0; }
 
-table, td       { table-layout: fixed; box-sizing: border-box; font-weight: bold; font-family: consolas, monospace; font-size: 28px; line-height: 1em; margin: 0; padding: 0; border: 0; }
+table, td       { table-layout: fixed; font-weight: bold; font-family: consolas, monospace; font-size: 28px; line-height: 1em; margin: 0; padding: 0; border: 0; }
 table           { border-collapse: separate; border-spacing: 0; }
 tr, td          { margin: 0; padding: 0; border: 0; }
 td              { height: 36px; width: 36px; min-height: 36px; min-width: 36px; vertical-align: center; text-align: center; border-collapse: collapse; color: black; border: 1px solid black; }
+p               { margin: 0; padding: 0; }
 
 #mapdiv         { overflow: auto;   position: fixed; top: @topbarheight; bottom: @bottombarheight; left: @leftbarwidth; right: @rightbarwidth; }
-#logdiv         { overflow-y: auto; position: fixed; top: @topbarheight; bottom: @bottombarheight; right: 0; width: @rightbarwidth; }
+#logdiv         { overflow-y: auto; position: fixed; top: @topbarheight; bottom: @bottombarheight; right: 0; width: @rightbarwidth; padding: 0.5em; }
 #chardiv        { overflow-y: auto; position: fixed; top: @topbarheight; bottom: @bottombarheight; left: 0; width: @leftbarwidth; }
 #topbar         { overflow-y: auto; position: fixed; left: 0; right: 0; top: 0; height: @topbarheight; }
 #bottombar      { overflow-y: auto; position: fixed; left: 0; right: 0; bottom: 0; height: @bottombarheight; }
+
+#logdiv>div     { padding: 0.5em 0.25em; }
+#logdiv>div+div { border-top: 1px solid gray; }
+#logdiv p       { text-indent: 1em; text-align: justify; }
+#logdiv p+p     { margin-top: 0.5em; }
+#logdiv p em    { font-style: normal; font-weight: bold; color: #800; }
 
 td.gold         { color: brown; background-color: yellow; }
 td.floor        { color: rgba(0,0,0, 0.5); background: url("./assets/lightdirt.jpg"); background-attachment: fixed; border-color: #B5926E; }

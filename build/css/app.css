@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   margin: 0;
@@ -7,7 +10,6 @@ body {
 table,
 td {
   table-layout: fixed;
-  box-sizing: border-box;
   font-weight: bold;
   font-family: consolas, monospace;
   font-size: 28px;
@@ -37,6 +39,10 @@ td {
   color: black;
   border: 1px solid black;
 }
+p {
+  margin: 0;
+  padding: 0;
+}
 #mapdiv {
   overflow: auto;
   position: fixed;
@@ -52,6 +58,7 @@ td {
   bottom: 3em;
   right: 0;
   width: 16em;
+  padding: 0.5em;
 }
 #chardiv {
   overflow-y: auto;
@@ -76,6 +83,24 @@ td {
   right: 0;
   bottom: 0;
   height: 3em;
+}
+#logdiv > div {
+  padding: 0.5em 0.25em;
+}
+#logdiv > div + div {
+  border-top: 1px solid gray;
+}
+#logdiv p {
+  text-indent: 1em;
+  text-align: justify;
+}
+#logdiv p + p {
+  margin-top: 0.5em;
+}
+#logdiv p em {
+  font-style: normal;
+  font-weight: bold;
+  color: #800;
 }
 td.gold {
   color: brown;
