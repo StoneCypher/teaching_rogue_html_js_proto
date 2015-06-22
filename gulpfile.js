@@ -93,7 +93,7 @@ gulp.task('publish', ['make-directories', 'react', 'build', 'less'], function() 
         { source: dirs.html       + '/index.html', destination: dirs.publish },
         { source: dirs.built_css  + '/app.css',    destination: dirs.publish },
         { source: dirs.flocks_npm + '/flocks.jsx', destination: dirs.publish },
-//      { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
+        { source: dirs.assets     + '/*',          destination: dirs.publish_assets },
         { source: dirs.built_js   + '/bundle.js',  destination: dirs.publish }
       ];
 
