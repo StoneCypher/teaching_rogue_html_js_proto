@@ -39,12 +39,43 @@ td {
 }
 #mapdiv {
   overflow: auto;
-  position: relative;
+  position: fixed;
+  top: 3em;
+  bottom: 3em;
+  left: 16em;
+  right: 16em;
+}
+#logdiv {
+  overflow-y: auto;
+  position: fixed;
+  top: 3em;
+  bottom: 3em;
+  right: 0;
+  width: 16em;
+}
+#chardiv {
+  overflow-y: auto;
   position: fixed;
   top: 3em;
   bottom: 3em;
   left: 0;
+  width: 16em;
+}
+#topbar {
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
   right: 0;
+  top: 0;
+  height: 3em;
+}
+#bottombar {
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3em;
 }
 td.gold {
   color: brown;
@@ -92,7 +123,7 @@ td.building {
   color: rgba(174, 121, 92, 0.3);
   background: url("assets/roof.jpg");
   background-attachment: fixed;
-  background-size: 25%;
+  background-size: 15%;
   border-color: rgba(174, 121, 92, 0.5);
 }
 td.shopdoor {
