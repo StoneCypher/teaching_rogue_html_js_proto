@@ -130,6 +130,8 @@ gulp.task('react', ['make-directories'], function() {
     .add(dirs.js         + "/rl.js",          { "expose" : "rl" })
     .add(dirs.js         + "/monsters.js",    { "expose" : "monsters" })
     .add(dirs.js         + "/baseMonster.js", { "expose" : "baseMonster" })
+    .add(dirs.js         + "/dice.js",        { "expose" : "dice" })
+    .add(dirs.js         + "/die_spec.js",    { "expose" : "die_spec" })
 
     .add(dirs.js         + "/boot.js",        { "expose" : "boot" })
 
