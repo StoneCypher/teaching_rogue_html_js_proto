@@ -6,8 +6,8 @@
 
 
 var MapOptions = {
-  height: 20,
-  width: 40
+  height : 30,
+  width  : 60
 };
 
 var PlayerOptions = {
