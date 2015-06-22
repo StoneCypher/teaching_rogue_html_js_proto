@@ -8,8 +8,8 @@ var baseMonster = require('baseMonster');
 
 
 var monsterList = [
-  baseMonster.param({ x: 20, y: 3, name: 'Kobold', symbol: 'k', className: 'kobold' }),
-  baseMonster.param({ x: 21, y: 5, name: 'Dragon', symbol: 'D', className: 'dragon' })
+  baseMonster.param({ x: 80, y: 27, name: 'Kobold', symbol: 'k', className: 'kobold' }),
+  baseMonster.param({ x: 81, y: 28, name: 'Dragon', symbol: 'D', className: 'dragon' })
 ];
 
 

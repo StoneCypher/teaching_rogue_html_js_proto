@@ -11,7 +11,7 @@ var MapOptions = {
 };
 
 var PlayerOptions = {
-  initialLoc : {x: 20, y: 4}
+  initialLoc : {x: 80, y: 28}
 };
 
 
@@ -19,7 +19,7 @@ var PlayerOptions = {
 
 
 var MapMaker = require('mapMaker'),
-    Map      = require('map').init(MapMaker.gen()),
+    Map      = require('map').init(MapMaker.gen(MapOptions)),
     Player   = require('player').create(PlayerOptions), // whargarbl uh oh
     Renderer = require('renderer'),
     UI       = require('ui');

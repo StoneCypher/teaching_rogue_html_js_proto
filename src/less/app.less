@@ -1,20 +1,23 @@
 html, body      { margin: 0; padding: 0; border: 0; }
 
-table, td       { font-weight: bold; font-family: consolas, monospace; font-size: 20px; margin: 0; padding: 0; border: 0; }
-table           { border-collapse: collapse; }
+table, td       { font-weight: bold; font-family: consolas, monospace; font-size: 30px; margin: 0; padding: 0; border: 0; }
+table           { border-collapse: separate; border-spacing: 0; }
 tr, td          { margin: 0; padding: 0; border: 0; }
-td              { height: 24px; width: 24px; vertical-align: center; text-align: center; border-collapse: collapse; color: black; }
+td              { height: 32px; width: 32px; min-height: 32px; min-width: 32px; vertical-align: center; text-align: center; border-collapse: collapse; color: black; border: 1px solid black; }
+
+#mapdiv         { overflow: auto; position: relative; position: fixed; top: 3em; bottom: 3em; left: 0; right: 0; }
 
 td.gold         { color: brown; background-color: yellow; }
-td.floor        { color: rgba(0,0,0, 0.5); background: url("./assets/dirt.jpg"); background-attachment: fixed; }
+td.floor        { color: rgba(0,0,0, 0.5); background: url("./assets/lightdirt.jpg"); background-attachment: fixed; border-color: #B5926E; }
 td.wall         { color: rgba(127, 127, 127, 0.2); background: url("./assets/darkgranite.jpg"); background-attachment: fixed; }
 td.door         { color: brown; background-color: #cb8; }
 td.weapon       { color: white; background-color: gray; }
 td.stairs       { color: white; background-color: black; text-shadow: 1px 1px #888; }
-td.grass        { color: rgba(63,255,0, 0.3); background-color: #080; background: url("./assets/grass.jpg"); background-attachment: fixed; background-size: 25%; }
+td.grass        { color: rgba(63,255,0, 0.3); background: url("./assets/grass.jpg");  background-attachment: fixed; background-size: 25%; border-color: #88B21E; }
+td.forest       { color: rgba(0,127,0, 0.3);  background: url("./assets/deepforest.jpg"); background-attachment: fixed; background-size: 25%; border-color: #35650C; }
 
 td.monster      { }
-td.creature     { text-shadow: 1px 1px #000000; }
+td.creature     { text-shadow: 1px 1px 4px #000000; }
 
 table td.player { color: white; }
 table td.dragon { color: red; }

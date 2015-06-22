@@ -8,13 +8,14 @@ table,
 td {
   font-weight: bold;
   font-family: consolas, monospace;
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
   padding: 0;
   border: 0;
 }
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 tr,
 td {
@@ -23,12 +24,24 @@ td {
   border: 0;
 }
 td {
-  height: 24px;
-  width: 24px;
+  height: 32px;
+  width: 32px;
+  min-height: 32px;
+  min-width: 32px;
   vertical-align: center;
   text-align: center;
   border-collapse: collapse;
   color: black;
+  border: 1px solid black;
+}
+#mapdiv {
+  overflow: auto;
+  position: relative;
+  position: fixed;
+  top: 3em;
+  bottom: 3em;
+  left: 0;
+  right: 0;
 }
 td.gold {
   color: brown;
@@ -36,8 +49,9 @@ td.gold {
 }
 td.floor {
   color: rgba(0, 0, 0, 0.5);
-  background: url("assets/dirt.jpg");
+  background: url("assets/lightdirt.jpg");
   background-attachment: fixed;
+  border-color: #B5926E;
 }
 td.wall {
   color: rgba(127, 127, 127, 0.2);
@@ -59,13 +73,20 @@ td.stairs {
 }
 td.grass {
   color: rgba(63, 255, 0, 0.3);
-  background-color: #080;
   background: url("assets/grass.jpg");
   background-attachment: fixed;
   background-size: 25%;
+  border-color: #88B21E;
+}
+td.forest {
+  color: rgba(0, 127, 0, 0.3);
+  background: url("assets/deepforest.jpg");
+  background-attachment: fixed;
+  background-size: 25%;
+  border-color: #35650C;
 }
 td.creature {
-  text-shadow: 1px 1px #000000;
+  text-shadow: 1px 1px 4px #000000;
 }
 table td.player {
   color: white;

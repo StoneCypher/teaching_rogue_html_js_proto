@@ -29,12 +29,19 @@ function requireKeys(Keys, Obj) {
 
 
 function canPass(X, Y) {
+
   if ((X < 0) || (Y < 0) || (X >= width) || (Y >= height)) { return false; } // whargarbl todo magic constants
+
   switch (currMap.data[(Y * width) + X]) { // whargarbl todo remove magic constant, need api for getting map cell
-    case '.' : return true;
+
+    case '.' :
+    case ';' :
     case '+' : return true; // whargarbl todo wrong
+
     default  : return false;
+
   }
+
 }
 
 

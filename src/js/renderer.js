@@ -23,6 +23,7 @@ function classFor(cellType) {
     case '$' : return 'gold';
     case '.' : return 'floor';
     case ';' : return 'grass';
+    case '%' : return 'forest';
 
     case '>' : case '<' :
                return 'stairs';
