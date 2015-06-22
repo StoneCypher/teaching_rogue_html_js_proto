@@ -27,16 +27,16 @@ function param(Options) {
 
       Behavior = {
 
-        name           : Options.name           || 'Monster',
-        symbol         : Options.symbol         || 'X',
-        className      : Options.className      || 'monster',
+        name           : Options.name               || 'Monster',
+        symbol         : Options.symbol             || 'X',
+        className      : ((Options.className + ' ') || '') + 'creature',
 
-        followBehavior : Options.followBehavior || standStill,
+        followBehavior : Options.followBehavior     || standStill,
 
-        x              : Options.x              || 0,
-        y              : Options.y              || 0,
+        x              : Options.x                  || 0,
+        y              : Options.y                  || 0,
 
-        hp             : dieSpec.parse(Options.hp || '20')
+        hp             : dieSpec.parse(Options.hp   || '20')
 
       };
 

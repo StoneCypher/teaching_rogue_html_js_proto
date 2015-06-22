@@ -56,7 +56,7 @@ function stringMapToTable() {
           mHere         = Monsters.at(i,j);
 
       // lol whargarbl todo this is fucking awful what's wrong with you
-      if      ((i === Player.x()) && (j === Player.y())) { override = '@';             overrideClass = 'player'; }
+      if      ((i === Player.x()) && (j === Player.y())) { override = '@';             overrideClass = 'player creature'; }
       else if (mHere.length)                             { override = mHere[0].symbol; overrideClass = mHere[0].className; }
 
       td.innerHTML = override? override : cellType;

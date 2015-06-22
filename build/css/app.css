@@ -6,7 +6,8 @@ body {
 }
 table,
 td {
-  font-family: inconsolata, consolas, monospace;
+  font-weight: bold;
+  font-family: consolas, monospace;
   font-size: 20px;
   margin: 0;
   padding: 0;
@@ -28,7 +29,6 @@ td {
   text-align: center;
   border-collapse: collapse;
   color: black;
-  background-color: #eee;
 }
 td.gold {
   color: brown;
@@ -36,30 +36,31 @@ td.gold {
 }
 td.floor {
   color: gray;
-  background-color: #eee;
+  background: url("assets/dirt.jpg");
+  background-attachment: fixed;
 }
 td.wall {
-  color: gray;
-  background-color: #555;
+  color: rgba(127, 127, 127, 0.2);
+  background: url("assets/darkgranite.jpg");
+  background-attachment: fixed;
 }
 td.door {
   color: brown;
   background-color: #cb8;
 }
-td.monster {
-  color: red;
-  background-color: #fbb;
-}
 td.weapon {
   color: white;
   background-color: gray;
 }
-table td.player {
-  color: black;
+td.creature {
+  text-shadow: 1px 1px #000000;
 }
-table td.kobold {
-  color: green;
+table td.player {
+  color: white;
 }
 table td.dragon {
   color: red;
+}
+table td.kobold {
+  color: #3f9;
 }
