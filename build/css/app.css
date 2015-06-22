@@ -24,7 +24,7 @@ td {
 }
 td {
   height: 24px;
-  width: 20px;
+  width: 24px;
   vertical-align: center;
   text-align: center;
   border-collapse: collapse;
@@ -35,7 +35,7 @@ td.gold {
   background-color: yellow;
 }
 td.floor {
-  color: gray;
+  color: rgba(0, 0, 0, 0.5);
   background: url("assets/dirt.jpg");
   background-attachment: fixed;
 }
@@ -51,6 +51,18 @@ td.door {
 td.weapon {
   color: white;
   background-color: gray;
+}
+td.stairs {
+  color: white;
+  background-color: black;
+  text-shadow: 1px 1px #888;
+}
+td.grass {
+  color: rgba(63, 255, 0, 0.3);
+  background-color: #080;
+  background: url("assets/grass.jpg");
+  background-attachment: fixed;
+  background-size: 25%;
 }
 td.creature {
   text-shadow: 1px 1px #000000;

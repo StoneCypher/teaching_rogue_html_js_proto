@@ -22,6 +22,10 @@ function classFor(cellType) {
     case '+' : return 'door';
     case '$' : return 'gold';
     case '.' : return 'floor';
+    case ';' : return 'grass';
+
+    case '>' : case '<' :
+               return 'stairs';
 
     case '{' : case '|' : case '}' : case '/' :
                return 'weapon';

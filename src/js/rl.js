@@ -6,7 +6,7 @@
 
 
 var MapOptions = {
-  height : 30,
+  height : 36,
   width  : 60
 };
 
@@ -18,7 +18,8 @@ var PlayerOptions = {
 
 
 
-var Map      = require('map').init(MapOptions),
+var MapMaker = require('mapMaker'),
+    Map      = require('map').init(MapMaker.gen()),
     Player   = require('player').create(PlayerOptions), // whargarbl uh oh
     Renderer = require('renderer'),
     UI       = require('ui');
