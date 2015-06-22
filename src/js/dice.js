@@ -1,7 +1,7 @@
 
 'use strict';
 
-var spec = require('die_spec');
+var spec = require('dieSpec');
 
 
 

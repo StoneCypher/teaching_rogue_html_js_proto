@@ -1,6 +1,8 @@
 
 'use strict';
 
+var dieSpec = require('dieSpec');
+
 
 
 
@@ -33,7 +35,8 @@ function param(Options) {
 
         x              : Options.x              || 0,
         y              : Options.y              || 0,
-        hp             : 20 // whargarbl
+
+        hp             : dieSpec.parse(Options.hp || '20')
 
       };
 

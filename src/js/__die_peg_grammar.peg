@@ -1,6 +1,4 @@
 
-// http://pegjs.org/online
-
 start
   = any
 
@@ -26,7 +24,8 @@ nocountmod
   / 'd' sz:integer '-' adj:integer { return {count: 1, size: parseInt(sz, 10), adjustment: parseInt(adj, 10) * -1 }; }
 
 constant
-  = integer
+  =     adj:integer { return {count: 0, size: 0, adjustment: parseInt(adj, 10) }; }
+  / '-' adj:integer { return {count: 0, size: 0, adjustment: parseInt(adj, 10) * -1 }; }
 
 integer "integer"
   = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
