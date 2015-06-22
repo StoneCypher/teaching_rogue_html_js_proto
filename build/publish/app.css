@@ -6,9 +6,12 @@ body {
 }
 table,
 td {
+  table-layout: fixed;
+  box-sizing: border-box;
   font-weight: bold;
   font-family: consolas, monospace;
-  font-size: 30px;
+  font-size: 28px;
+  line-height: 1em;
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,10 +27,10 @@ td {
   border: 0;
 }
 td {
-  height: 32px;
-  width: 32px;
-  min-height: 32px;
-  min-width: 32px;
+  height: 36px;
+  width: 36px;
+  min-height: 36px;
+  min-width: 36px;
   vertical-align: center;
   text-align: center;
   border-collapse: collapse;
@@ -76,14 +79,26 @@ td.grass {
   background: url("assets/grass.jpg");
   background-attachment: fixed;
   background-size: 25%;
-  border-color: #88B21E;
+  border-color: rgba(136, 178, 30, 0.5);
 }
 td.forest {
   color: rgba(0, 127, 0, 0.3);
   background: url("assets/deepforest.jpg");
   background-attachment: fixed;
   background-size: 25%;
-  border-color: #35650C;
+  border-color: rgba(53, 101, 12, 0.5);
+}
+td.building {
+  color: rgba(174, 121, 92, 0.3);
+  background: url("assets/roof.jpg");
+  background-attachment: fixed;
+  background-size: 25%;
+  border-color: rgba(174, 121, 92, 0.5);
+}
+td.shopdoor {
+  color: #D4AF37;
+  background-color: #643B0F;
+  border-color: #F0E68C;
 }
 td.creature {
   text-shadow: 1px 1px 4px #000000;
